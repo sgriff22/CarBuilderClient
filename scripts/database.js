@@ -35,6 +35,13 @@ export const addCustomOrder = async () => {
   document.dispatchEvent(new CustomEvent("stateChanged"));
 };
 
+export const completeOrder = async (orderId) => {
+  await fetch(`https://localhost:7008/orders/${orderId}/fulfill`, {
+    method: "POST",
+  });
+  document.dispatchEvent(new CustomEvent("stateChanged"));
+};
+
 export const getOrders = async () => {
     const res = await fetch("https://localhost:7008/orders");
     const data = await res.json();
