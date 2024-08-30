@@ -5,9 +5,9 @@ const paints = await getPaints()
 const interiors = await getInteriors()
 const techs = await getTechnologies()
 const wheels = await getWheels()
-const orders = await getOrders()
 
-export const Orders = () => {
+export const Orders = async () => {
+    const orders = await getOrders()
 
     return `${
         orders.map(order => {
